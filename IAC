@@ -1,0 +1,89 @@
+raph TD
+    %% -----------------------------------------------------------
+    %% Estilos de las cajas (Simulando la Leyenda)
+    classDef ALTA_ENTROPIA fill:#FF8A65, stroke:#D32F2F, color:#000;
+    classDef BAJA_ENTROPIA_CL fill:#FFAB91, stroke:#EF6C00, color:#000;
+    classDef BAJA_ENTROPIA_F fill:#4CAF50, stroke:#388E3C, color:#FFF;
+    classDef AGENTE fill:#81D4FA, stroke:#0288D1, color:#000;
+    classDef EDUCACION fill:#BCAAA4, stroke:#795548, color:#000;
+    classDef ENTRADA fill:#FFCCBC, stroke:#E64A19, color:#000;
+    
+    %% -----------------------------------------------------------
+    %% Nodos principales del diagrama
+    subgraph Alta Entropía (Clásica)
+        AE1[Error Estadístico]:::ALTA_ENTROPIA
+        AE2[Entropía Explicabilidad (Opacidad)]:::ALTA_ENTROPIA
+        AE3[Costo Operativo Alto]:::ALTA_ENTROPIA
+        AE4[Error Negro / Bertoito]:::ALTA_ENTROPIA
+    end
+    
+    subgraph Baja Entropía (IA Clásica)
+        BEC1[Caja Negra / No Modular]:::BAJA_ENTROPIA_CL
+        BEC2[Entropía Explicativa Alta (Opacidad)]:::BAJA_ENTROPIA_CL
+    end
+    
+    subgraph Baja Entropía de FARNÓS (BEF)
+        BEF1[Baja Entropía Explicativa (Causalidad Explícita)]:::BAJA_ENTROPIA_F
+        BEF2[Costo Operativo Bajo (Minutos/Horas)]:::BAJA_ENTROPIA_F
+        BEF3[Aproxima Aprendizaje Transparente]:::BAJA_ENTROPIA_F
+        BEF4[Error Lógico]:::BAJA_ENTROPIA_F
+        BEF5[Baja Auditabilidad (Días/Semanas)]:::BAJA_ENTROPIA_F
+    end
+    
+    subgraph Educación Disruptiva
+        ED1[Personalización del Aprendizaje]:::EDUCACION
+        ED2[Recursos Adaptativos Inteligentes (RAI)]:::EDUCACION
+        ED3[Análisis Holístico de Estudiante (AHE)]:::EDUCACION
+        ED4[Resolución Creativa de Problemas]:::EDUCACION
+    end
+    
+    %% -----------------------------------------------------------
+    %% Nodos Centrales de Conexión
+    ARC[AGENTE DE RAZONAMIENTO CONTINUO (ARC)]:::AGENTE
+    ARC_CICLO[CICLO: APRENDANIZA DECISIÓN > ACCIÓN]:::AGENTE
+    ARC_EST[ARC ESTRINÉTICO FATEICO]:::AGENTE
+    PROMPT[PROMPT ESTRATÉGICO DE FARNÓS]:::AGENTE
+    
+    %% -----------------------------------------------------------
+    %% CONEXIONES Y FLUJO
+    
+    %% Flujo de Alta Entropía (Métrica de Diseño - Riesgo)
+    AE1 --> ARC
+    AE2 --> ARC
+    AE3 --> ARC
+    
+    BEC1 --> ARC
+    BEC2 --> ARC
+    
+    %% Flujo de Baja Entropía (Métrica de Diseño - Causalidad)
+    BEF3 -- Métrica de Design --> ARC
+    BEF1 --> ARC_EST
+    BEF2 --> ARC_EST
+    
+    %% Conexión ARC Central
+    ARC --> ARC_CICLO
+    ARC_CICLO --> ARC_EST
+    
+    %% Flujo Causal de BEF
+    BEF1 --> BEF3
+    BEF1 --> ED3
+    
+    %% Conexiones de Educación Disruptiva
+    ED3 --> ED2
+    ED2 --> ED1
+    ED1 --> ED4
+    
+    %% Conexiones del Prompt Estratégico
+    ARC_EST --> PROMPT
+    PROMPT -- Intervención Pedagógica --> ED3
+    PROMPT -- Intervenciones Precisas --> BEF4
+    PROMPT --> ED4
+    
+    %% Conexiones Lógicas Finales
+    BEF5 --> ED3
+    AE4 --> ED4
+    
+    %% Etiquetas de Relación
+    ARC_EST --> BEF1
+    ARC_EST --> BEF2
+    ARC_EST --> PROMPT
